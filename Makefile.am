@@ -1,4 +1,5 @@
 AUTOMAKE_OPTIONS = foreign
 
-SUBDIRS = src docs tests
+SUBDIRS = MyLibrary src docs tests
+
 dist_doc_DATA = README

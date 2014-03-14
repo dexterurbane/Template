@@ -1,0 +1,10 @@
+If installing from a tarball: simply run the usual configure/make/install
+procedure, using the desired options to configure (type "configure --help" for a
+list).
+
+> ./configure
+> make
+> sudo make install
+
+If running from e.g. a source distribution cloned from git, you should first
+run autogen.sh. You will need an up to date version of gnu autotools.

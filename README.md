@@ -1,0 +1,4 @@
+Template
+========
+
+Autotools template project.

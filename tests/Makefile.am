@@ -1,11 +1,5 @@
 AUTOMAKE_OPTIONS = foreign
-
-AM_CPPFLAGS = -I../third_party -I../src
-
 TESTS = tests
-
 check_PROGRAMS = tests
-
 tests_SOURCES = tests.cc
-tests_LDADD = 
-tests_LDFLAGS =
+TESTS_ENVIRONMENT=BOOST_TEST_REPORT_LEVEL=detailed BOOST_TEST_LOG_LEVEL=all
