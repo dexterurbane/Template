@@ -86,6 +86,11 @@ single component without recreating the entire vector.
 It is considered good OO coding style not to use too many getters and setters
 without good reason.
 
+One style is to use swap semantics to acquire a new value. In such a case,
+the following style can be used:
+
+void acquireValue(Value * val) {std::swap(val_, val);}
+
 Brace style
 -----------
 Braces start on a new line e.g.  
@@ -97,9 +102,8 @@ Function F()
 Pointer and reference grouping
 ------------------------------
 int* i;
-int& j;
-int* k = &j;
 int& j = *i;
+int* k = &j;
 
 References vs pointers
 ----------------------
@@ -109,3 +113,9 @@ when the return value or argument may be null.
 Numerical types
 ---------------
 Floating point generally uses double. Integer types are generally int.
+
+Error reporting, etc.
+---------------------
+Errors etc. are called through the error(), warning(), message(), debug()
+functions, declared in Output.h. Debug statements are usually surrounded by
+the SGT_DEBUG() macro, which evaluates to nothing unless DEBUG is defined.
