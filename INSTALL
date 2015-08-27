@@ -7,4 +7,8 @@ list).
 > sudo make install
 
 If running from e.g. a source distribution cloned from git, you should first
-run autogen.sh. You will need an up to date version of gnu autotools.
+run autogen.sh before performing the steps above.
+
+> autogen.sh
+
+You will need an up to date version of GNU autotools.

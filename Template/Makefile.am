@@ -1,15 +1,30 @@
 AUTOMAKE_OPTIONS = foreign
 
-lib_LIBRARIES = libTemplate.a
+if WITH_FEATURE
+FEATURE_H = Bar.h
+FEATURE_CC = Bar.cc
+else
+FEATURE_H =
+FEATURE_CC =
+endif
+
+libincludedir = $(includedir)/Template
+
+lib_LTLIBRARIES = libTemplate.la
 
 include_HEADERS = Template.h
 
-pkginclude_HEADERS = \
+libinclude_HEADERS = \
 	Foo.h \
-	Bar.h
+	$(FEATURE_H)
 
-libTemplate_a_SOURCES = \
-	Foo.h \
-	Foo.cc \
-	Bar.h \
-	Bar.cc
+libTemplate_la_SOURCES = \
+	Foo.h Foo.cc \
+	$(FEATURE_H) $(FEATURE_CC)
+
+libTemplate_la_LIBADD = \
+	-lexternal_library \
+
+noinst_PROGRAMS = helloworld
+helloworld_SOURCES = helloworld.cc
+helloworld_LDADD = -lTemplate

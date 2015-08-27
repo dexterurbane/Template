@@ -1,8 +1,9 @@
 AUTOMAKE_OPTIONS = foreign
 
+AM_CPPFLAGS += -I../Template
+
 bin_PROGRAMS = helloworld
 
-# Using LDADD for -l linker flags in this way avoids a potential problem with link order.
-helloworld_LDADD = ../Template/libTemplate.a
-
 helloworld_SOURCES = helloworld.cc
+
+helloworld_LDADD = ../Template/libTemplate.a
